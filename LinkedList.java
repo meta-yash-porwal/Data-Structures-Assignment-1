@@ -218,8 +218,13 @@ public class LinkedList {
 	 * @return boolean true(if loop is present) / false(no loop)
 	 */
 	public boolean detectLoop(){
-		Node slow_p = head, fast_p = head;
+		Node slow_p = head, fast_p = head, currNode = head;
 		int flag = 0;
+		/*
+		* To detect a loop
+		*/
+		currNode = currNode.next.next.next.next;
+		currNode.next = head;
 		while (fast_p != null && fast_p.next != null) {
             slow_p = slow_p.next;
             fast_p = fast_p.next.next;
